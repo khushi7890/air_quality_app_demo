@@ -1,0 +1,25 @@
+name: air_quality_app_demo
+description: A demo Flutter app following a clean multi-layer architecture using FastAPI + Firebase/Firestore.
+publish_to: "none"
+version: 0.1.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  http: ^1.2.2
+  provider: ^6.1.2
+  firebase_core: ^3.4.0
+  cloud_firestore: ^5.4.4
+  firebase_auth: ^5.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutterfire_cli: ^1.3.1
+
+flutter:
+  uses-material-design: true

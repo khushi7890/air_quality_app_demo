@@ -1,0 +1,12 @@
+# Flutter/Dart
+.dart_tool/
+.packages
+.buildlog/
+.pub-cache/
+.pub/
+/build/
+android/local.properties
+ios/Flutter/.last_build_id
+firebase_app_id_file.json
+google-services.json
+GoogleService-Info.plist
