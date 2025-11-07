@@ -7,7 +7,7 @@ print("🧹 Cleaned GOOGLE_APPLICATION_CREDENTIALS")
 import firebase_admin
 from firebase_admin import credentials, firestore
 
-# Absolute path to your local service account key
+# Absolute path to service account key
 SERVICE_ACCOUNT_PATH = os.path.join(
     os.path.dirname(__file__), "..", "serviceAccountKey.json"
 )
@@ -18,7 +18,7 @@ assert os.path.exists(SERVICE_ACCOUNT_PATH), f"Service account file not found at
 print(f"✅ Firebase loading credentials from: {SERVICE_ACCOUNT_PATH}")
 
 
-# Initialize Firebase only once
+# Initialize Firebase // check if initialized so this only happens once
 if not firebase_admin._apps:
     print("🧠 About to initialize Firebase manually...")
 
@@ -32,5 +32,5 @@ db = firestore.client()
 
 def get_sensor_data():
     """Return list of sensor documents as dictionaries."""
-    docs = db.collection("sensors").stream()
-    return [d.to_dict() for d in docs]
+    docs = db.collection("sensors").stream() # Use this client to get a stream of sensor data
+    return [d.to_dict() for d in docs] # store in a dictionary and return

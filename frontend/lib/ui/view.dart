@@ -12,6 +12,7 @@ class SensorListScreen extends StatefulWidget {
 class _SensorListScreenState extends State<SensorListScreen> {
   @override
   void initState() {
+    // trigger loading of sensor data when we initialize widget
     super.initState();
     Future.microtask(() => context.read<SensorViewModel>().loadSensors());
   }
@@ -20,6 +21,7 @@ class _SensorListScreenState extends State<SensorListScreen> {
   Widget build(BuildContext context) {
     final vm = context.watch<SensorViewModel>();
 
+    // very basic layout of pages
     return Scaffold(
       appBar: AppBar(title: const Text('Sensors (FastAPI + Firestore)')),
       body: vm.loading
@@ -31,7 +33,8 @@ class _SensorListScreenState extends State<SensorListScreen> {
                 final s = vm.sensors[i];
                 return ListTile(
                   title: Text('${s.deviceId} — AQI ${s.aqi ?? "-"}'),
-                  subtitle: Text('Location: ${s.location ?? "unknown"} • ${s.timestamp ?? ""}'),
+                  subtitle: Text(
+                      'Location: ${s.location ?? "unknown"} • ${s.timestamp ?? ""}'),
                 );
               },
             ),

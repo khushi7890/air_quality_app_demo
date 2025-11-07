@@ -17,16 +17,19 @@ class ServiceFastAPI {
           .map((item) => TodoItem.fromJson(item))
           .toList(); // return as list
     } else {
-      throw Exception('Failed to load todos');
+      throw Exception('Failed to load todos'); // Handle error appropriately
     }
   }
 
   Future<List<SensorModel>> getSensors() async {
-    final r = await http.get(Uri.parse('$baseUrl/sensors'));
+    final r =
+        await http.get(Uri.parse('$baseUrl/sensors')); // call FastAPI endpoint
     if (r.statusCode != 200) {
-      throw Exception('FastAPI error: ${r.statusCode} ${r.body}');
+      throw Exception(
+          'FastAPI error: ${r.statusCode} ${r.body}'); // Handle error
     }
-    final list = (jsonDecode(r.body) as List).cast<Map<String, dynamic>>();
-    return list.map((e) => SensorModel.fromJson(e)).toList();
+    final list = (jsonDecode(r.body) as List)
+        .cast<Map<String, dynamic>>(); //decode JSON sensor data
+    return list.map((e) => SensorModel.fromJson(e)).toList(); // return as list
   }
 }

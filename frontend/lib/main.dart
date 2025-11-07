@@ -23,11 +23,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // this is how we tie to Wyatt's FastAPI framework
     final repository = Repository(
-        //Fast API is a dart object thatt points to Wyatt's fast API link and can host get/post
-        fastAPI: ServiceFastAPI(baseUrl: "http://127.0.0.1:8000"),
-        firestore: null
-        //firestore: ServiceFirestore(), this is how we tie to firestore
-        );
+      //Fast API is a dart object thatt points to Wyatt's fast API link and can host get/post
+      fastAPI: ServiceFastAPI(baseUrl: "http://127.0.0.1:8000"),
+      firestore: ServiceFirestore(),
+    );
     //widget root - here we create a theme and a screen
     // screens can contain more widgets
     return MaterialApp(

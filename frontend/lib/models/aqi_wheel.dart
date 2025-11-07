@@ -15,7 +15,6 @@ class AQIWheel extends StatelessWidget {
   }
 }
 
-
 class AQIPainter extends CustomPainter {
   final double aqi;
   AQIPainter(this.aqi);
@@ -65,7 +64,7 @@ class AQIPainter extends CustomPainter {
       ..strokeWidth = 100
       ..strokeCap = StrokeCap.butt;
 
-    // Draw each color segment evenly spaced
+    // paint segments - evenly spaced
     const double gap = 0.02; //
     for (int i = 0; i < colors.length; i++) {
       paint.color = colors[i];
@@ -78,8 +77,8 @@ class AQIPainter extends CustomPainter {
       );
     }
 
-    // Draw needle
-    final normalizedAQI = (aqi.clamp(0, 400)/ 400); // between 0–1
+    // draw needle
+    final normalizedAQI = (aqi.clamp(0, 400) / 400); // between 0–1
     final needleAngle = startAngle + (normalizedAQI * sweepAngle);
     final needlePaint = Paint()
       ..color = Colors.black
@@ -112,7 +111,7 @@ class AQIPainter extends CustomPainter {
     );
 
     // Category Description
-    final int category =  (aqi/50).toInt();
+    final int category = (aqi / 50).toInt();
     final categoryPainter = TextPainter(
       text: TextSpan(
         text: labels[category],
@@ -149,8 +148,8 @@ class AQIPainter extends CustomPainter {
     );
 
     // Draw category labels
-    final labelPainter =
-    TextPainter(textAlign: TextAlign.center, textDirection: TextDirection.ltr);
+    final labelPainter = TextPainter(
+        textAlign: TextAlign.center, textDirection: TextDirection.ltr);
     for (int i = 0; i < ranges.length; i++) {
       final angle = startAngle + (i + 0.5) * segmentSweep;
       final labelOffset = Offset(

@@ -11,7 +11,7 @@ from services.models import TodoItem
 app = FastAPI(title="air_quality_app demo backend")
 
 
-# todos = [TodoItem('Check indoor air quality',False), TodoItem('Replace classroom HEPA filters', True), TodoItem('Calibrate sensor PA100865',False), TodoItem('Upload AQI data to Firestore',True)]
+
 todos =[]
 
 app.add_middleware(
