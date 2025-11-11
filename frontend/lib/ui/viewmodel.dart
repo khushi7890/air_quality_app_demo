@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import '../data/repository.dart';
-import '../models/sensor_data.dart';
+import '../app/core/data/repository.dart';
+import '../app/core/models/sensor_data.dart';
 
 class SensorViewModel extends ChangeNotifier {
   final Repository repository;

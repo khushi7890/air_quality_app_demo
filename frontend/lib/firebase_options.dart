@@ -72,4 +72,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'air-quality-demo-82f65.firebasestorage.app',
     iosBundleId: 'com.example.airQualityAppDemo',
   );
+
 }

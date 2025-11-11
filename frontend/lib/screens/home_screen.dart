@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:air_quality_app_demo/models//aqi_wheel.dart'; // adjust the import
+import 'package:air_quality_app_demo/app/core/widgets/aqi_wheel.dart'; // adjust the import
 
 class HomeScreen extends StatelessWidget {
   // dummy sensor data to help build AQI wheel
@@ -14,6 +14,7 @@ class HomeScreen extends StatelessWidget {
   // Basic alignment and put in AQUI wheel
   @override
   Widget build(BuildContext context) {
+    print("🏠 HomeScreen building...");
     final aqi = sensorData['AQI'];
     return Scaffold(
       appBar: AppBar(title: const Text('Air Quality Sensor')),

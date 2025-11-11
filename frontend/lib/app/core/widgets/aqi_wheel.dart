@@ -2,15 +2,22 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 class AQIWheel extends StatelessWidget {
-  final double aqi;
+  final double? aqi;
 
   const AQIWheel({super.key, required this.aqi});
 
   @override
   Widget build(BuildContext context) {
+    if (aqi == null) {
+      return const SizedBox(
+        height: 150,
+        child: Center(child: Text('No AQI data available')),
+      );
+    }
+
     return CustomPaint(
-      size: const Size(300, 150), // width x height
-      painter: AQIPainter(aqi),
+      size: const Size(300, 150),
+      painter: AQIPainter(aqi!),
     );
   }
 }
